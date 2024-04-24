@@ -10,7 +10,18 @@
         class="text-weight-bolder bg-white rounded-borders btn-head">
         문의하기
       </q-btn>
-      <q-btn v-if="$q.screen.lt.md" flat rounded-borders dense icon="menu" class=""/>
+      <q-btn v-if="$q.screen.lt.md" flat rounded-borders dense icon="menu">
+        <q-menu>
+          <q-list style="min-width: 80px">
+            <q-item clickable v-close-popup>
+              <q-select borderless v-model="dropdownModel" :options="options" dropdown-icon="expand_more" class="q-ml-sm"/>
+            </q-item>
+            <q-item clickable v-close-popup>
+              <q-btn unelevated border-radius="10px" rounded-borders class="text-weight-bolder bg-white rounded-borders btn-head">문의하기</q-btn>
+            </q-item>
+          </q-list>
+        </q-menu>
+      </q-btn>
     </q-toolbar>
   </q-header>
 </template>
